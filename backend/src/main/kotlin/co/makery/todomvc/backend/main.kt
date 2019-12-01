@@ -17,7 +17,7 @@ fun Application.main() {
     get("/") {
       call.respondHtml {
         head {
-          title { +"HTML Application" }
+          title { +"TODO MVC ${TestPlatform.S}"}
           style { +CSS.index() }
         }
         body {

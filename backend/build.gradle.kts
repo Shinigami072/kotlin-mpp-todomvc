@@ -24,10 +24,11 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-  compile(kotlin("stdlib", kotlinVersion))
-  compile("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
-  compile("io.ktor:ktor-server-netty:$ktorVersion")
-  compile("io.ktor:ktor-html-builder:$ktorVersion")
-  compile("ch.qos.logback:logback-classic:$logbackVersion")
-  compile("azadev.kotlin:aza-kotlin-css:$cssVersion")
+  implementation(kotlin("stdlib", kotlinVersion))
+  implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
+  implementation("io.ktor:ktor-server-netty:$ktorVersion")
+  implementation("io.ktor:ktor-html-builder:$ktorVersion")
+  implementation("ch.qos.logback:logback-classic:$logbackVersion")
+  implementation(project(":common"))
+  implementation("azadev.kotlin:aza-kotlin-css:$cssVersion")
 }

@@ -1,6 +1,6 @@
 rootProject.name = "kotlin-todomvc"
 
-include("backend", "frontend")
+include("backend", "frontend","common")
 
 pluginManagement {
   repositories {

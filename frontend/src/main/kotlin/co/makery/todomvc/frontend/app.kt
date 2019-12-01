@@ -21,8 +21,7 @@ class TodoApp(name: String) {
     val setView: (Event) -> Unit = { _ -> document.location?.hash?.let { controller.setView(it) } }
     window.addEventListener("load", setView)
     window.addEventListener("hashchange", setView)
-
-    println("$name started.")
+    println("${TestPlatform.S} $name started.")
   }
 }
 
@@ -40,7 +39,7 @@ fun main(args: Array<String>) {
 fun TagConsumer<*>.application() {
   section(classes = "todoapp") {
     header(classes = "header") {
-      h1 { +"todos" }
+      h1 { +"todos"}
       input(classes = "new-todo") { placeholder = "What needs to be done?"; autoFocus = true }
     }
     section(classes = "main") {
@@ -59,7 +58,7 @@ fun TagConsumer<*>.application() {
     }
   }
   footer(classes = "info") {
-    p { +"Double-click to edit a todo" }
+    p { +"Double-click to edit a todo ${TestPlatform.S}" }
     p { +"Created by "; a(href = "https://github.com/gyulavoros/kotlin-todomvc") { +"Gyula Voros" } }
     p { +"Part of "; a(href = "http://todomvc.com") { +"TodoMVC" } }
   }
