@@ -13,10 +13,6 @@ application {
   mainClassName = "io.ktor.server.netty.DevelopmentEngine"
 }
 
-kotlin {
-  experimental.coroutines = Coroutines.ENABLE
-}
-
 tasks.withType<KotlinCompile> {
   kotlinOptions {
     jvmTarget = "1.8"
@@ -24,11 +20,12 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-  implementation(kotlin("stdlib", kotlinVersion))
+  implementation(kotlin("stdlib-jdk8", kotlinVersion))
   implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinxHtmlVersion")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
   implementation("io.ktor:ktor-server-netty:$ktorVersion")
   implementation("io.ktor:ktor-html-builder:$ktorVersion")
   implementation("ch.qos.logback:logback-classic:$logbackVersion")
-  implementation(project(":common"))
   implementation("azadev.kotlin:aza-kotlin-css:$cssVersion")
+  implementation(project(":common"))
 }

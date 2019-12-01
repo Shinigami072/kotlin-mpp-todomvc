@@ -17,8 +17,8 @@ fun Application.main() {
     get("/") {
       call.respondHtml {
         head {
-          title { +"TODO MVC ${TestPlatform.S}"}
-          style { +CSS.index() }
+          title { text("TODO MVC ${TestPlatform.S}")}
+          style { CSS.index() }
         }
         body {
           script(src = "frontend/frontend.bundle.js") {}

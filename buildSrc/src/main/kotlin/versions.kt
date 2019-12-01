@@ -1,8 +1,9 @@
 // dependencies
 val kotlinVersion = "1.3.60"
-val kotlinxHtmlVersion = "0.6.8"
-val ktorVersion = "0.9.0"
+val ktorVersion = "1.2.5"
 val logbackVersion = "1.2.3"
+val coroutinesVersion = "1.3.2"
+val kotlinxHtmlVersion = "0.6.10"
 val cssVersion = "1.0"
 
 // build

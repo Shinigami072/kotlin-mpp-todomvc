@@ -17,6 +17,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-js:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-test-js:$kotlinVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-html-js:$kotlinxHtmlVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutinesVersion")
+
     implementation(project(":common"))
 }
 
@@ -62,23 +64,8 @@ tasks {
         }
     }
 
-//    "processResources"(Copy::class) {
-//        from(file(buildDir.path + "/resources"))
-//        into(file(buildDir.path + "/kotlin-js-min"))
-//    }
 
     val assembleWeb by register<Copy>("assembleWeb") {
-//        group = "build"
-//        configurations.compile.files.onEach { file ->
-//            from(zipTree(file.absolutePath), {
-//                includeEmptyDirs = false
-//                include { fileTreeElement ->
-//                    val path = fileTreeElement.path
-//                            path.endsWith(".js") && (path.startsWith("META-INF/resources/") ||
-//                            !path.startsWith("META-INF/"))
-//                }
-//            })
-//        }
 
         from("${buildDir.path}/resources/")
         into("${buildDir.path}/kotlin-js-min/")
@@ -89,8 +76,6 @@ tasks {
 }
 
 afterEvaluate {
-//    tasks["assemble"].dependsOn("processResources")
-//
     tasks["webpack-bundle"].dependsOn("assembleWeb")
     tasks["webpack-bundle"].dependsOn("runDceKotlinJs")
     tasks["webpack-run"].dependsOn("runDceKotlinJs")

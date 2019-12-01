@@ -20,6 +20,8 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
                 implementation(kotlin("stdlib-common"))
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutinesVersion")
+
             }
         }
         commonTest {
